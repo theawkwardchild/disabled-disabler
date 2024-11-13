@@ -10,7 +10,8 @@ function enableDisabledElements(startingElement = document) {
     // Collect all disabled inputs and buttons.
     // If you find any other types of elements that you would want enabled, add them here.
     // Per mozilla: `The disabled attribute is supported by <button>, <fieldset>, <optgroup>, <option>, <select>, <textarea> and <input>`
-    let elements = startingElement.querySelectorAll("input[disabled], button[disabled]");
+    // not exactly sure why I was using input[disabled] & button[disabled] previously. Some types of elements were not being captured with it but can check back if there are any issues.
+    let elements = startingElement.querySelectorAll(":disabled"); //("input[disabled], button[disabled]"); 
     
     elements.forEach(element => {
         // I personally liked the apperance of borders over outlines, but found some element types did not support borders so they get a colored outline
